@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "testing github actions"
-        run: pwd
+      - name: "before"
+        run: ls
+      - uses: actions/checkout@v3
 
-      - name: "testing again"
-        run: echo "ahmed"
+      - name: "after"
+        run: ls
