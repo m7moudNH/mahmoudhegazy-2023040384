@@ -8,5 +8,6 @@ COPY hello.py .
 COPY names.xlsx .
 
 RUN pip3 install pandas
+RUN pip3 install openpyxl
 
 CMD ["python3", "hello.py"]
