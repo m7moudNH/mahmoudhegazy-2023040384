@@ -8,9 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download Python
-        run: sudo apt update && sudo apt install -y python3
-      - name: Download pandas
-        run: pip install pandas
-      - name: runinng the file
-        run: python3 hello.py
+      - uses: actions/checkout@v4
+
+      # - name: Build Docker image
+      #   run: docker build -t my-python-app .
+
+      # - name: Run Docker container
+      #   run: docker run my-python-app
+
+      - name: "login to docker hub"
+        run: docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: "docker image"
+        run: docker build -t --name python_image ${{ secrets.DOCKERHUB_USERNAME }}/mahmoudhegazy-2023040384 .
+
+      - name: "push to dockerhub"
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/mahmoudhegazy-2023040384
