@@ -5,6 +5,7 @@ RUN apt update && apt install -y python3 python3-pip
 WORKDIR /app
 
 COPY hello.py .
+COPY names.xlsx .
 
 RUN pip3 install pandas
 
