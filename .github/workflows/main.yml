@@ -20,7 +20,7 @@ jobs:
         run: docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: "docker image"
-        run: docker build -t --name python_image ${{ secrets.DOCKERHUB_USERNAME }}/mahmoudhegazy-2023040384 .
+        run: docker build -t python_image .
 
       - name: "push to dockerhub"
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/mahmoudhegazy-2023040384
+        run: docker push python_image/python_repo
