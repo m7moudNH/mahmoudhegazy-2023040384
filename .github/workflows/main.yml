@@ -10,3 +10,7 @@ jobs:
     steps:
       - name: Download Python
         run: sudo apt update && sudo apt install -y python3
+      - name: Download pandas
+        run: pip install pandas
+      - name: runinng the file
+        run: py hello.py
