@@ -13,4 +13,4 @@ jobs:
       - name: Download pandas
         run: pip install pandas
       - name: runinng the file
-        run: py hello.py
+        run: python3 hello.py
